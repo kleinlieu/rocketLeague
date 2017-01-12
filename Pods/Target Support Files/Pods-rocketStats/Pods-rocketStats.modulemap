@@ -1,0 +1,6 @@
+framework module Pods_rocketStats {
+  umbrella header "Pods-rocketStats-umbrella.h"
+
+  export *
+  module * { export * }
+}

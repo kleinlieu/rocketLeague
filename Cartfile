@@ -1,0 +1,4 @@
+github "tid-kijyun/Kanna" ~> 2.1.0
+
+github "Alamofire/Alamofire" ~> 4.0
+github "SwiftyJSON/SwiftyJSON" ~> 3.1.3
