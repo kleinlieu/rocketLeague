@@ -10,9 +10,13 @@ import UIKit
 import Alamofire
 import Kanna
 
+// Not a hard and fast rule, but people like to name the class with the super in it somehow: 
+// PSNVieWController, for example. 
 class PSN: UIViewController {
     
     var psnTag = ""
+    
+    // Again, comment about static strings apply here too
     var psnURL = "https://rocketleaguestats.com/profile/PS4/"
     var stats: [String] = []
     var counter = 0
@@ -37,6 +41,14 @@ class PSN: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // scrapeForStats() and parseHTML() could be written to a separate class
+    // (like a singleton pattern or a wrapper around Alamofire) so that you can
+    // unit test this class separately. Also architecturally you want to separate
+    // different tasks away from the controller so you don't end up with a massive VC.
+    // Lastly, what you could do is move setStats() into a model class that can init 
+    // from a block of JSON, then pass that model to your controller to instantiate the view with.
+    // Something like this: 
+    // (Wrapper of Alamofire) --> model --> controller --> view 
     func scrapeForStats() -> Void {
         psnURL += psnTag
         
